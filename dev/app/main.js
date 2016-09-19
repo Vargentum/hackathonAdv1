@@ -1,3 +1,10 @@
-// import {one, two} from './model/nums';
+import StudentsController from './controllers/studentsController'
 
-// document.write(`Сумма импортов: ${one + two}`);
+const controller = new StudentsController()
+
+
+/*TODO:
+  + make Model.getAll
+  - 
+
+*/
