@@ -1,10 +1,10 @@
 
 export default class StudentsModel {
-  constructor({config}) {
-    this.config = config
+  constructor(apiConfig) {
+    this.apiConfig = apiConfig
   }
   makeAPIRequest(request) {
-    return `//${this.config.host}:${this.config.port}/${this.config.endpoint}${request}`
+    return `//${this.apiConfig.host}:${this.apiConfig.port}/${this.apiConfig.endpoint}${request}`
   }
   getAll() {
     return fetch(this.makeAPIRequest('/students'))

@@ -1,16 +1,23 @@
-import config from '../config/studentsAPI'
+import API_CONFIG from '../config/studentsAPI'
 import StudentsModel from '../models/studentsModel'
+import StudentsListView from '../views/students/listView'
 
 export default class Controller {
-  constructor(args) {
-    this.model = new StudentsModel({config})
-
+  constructor(config) {
+    this.model = new StudentsModel(API_CONFIG)
+    this.listView = new StudentsListView()
+    this.config = config
+  }
+  init() {
     this.model
       .getAll()
       .then(res => res.json())
-      .then(data => console.log(data, '---------'))
+      .then(this.updateView.bind(this))
       .catch(e => {
         throw e
       })
+  }
+  updateView(data, node){
+    this.config.mountPoint.innerHTML = this.listView.render(data)
   }
 }
