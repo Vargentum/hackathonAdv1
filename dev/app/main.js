@@ -1,3 +1,3 @@
-import {one, two} from './model/nums';
+// import {one, two} from './model/nums';
 
-document.write(`Сумма импортов: ${one + two}`);
+// document.write(`Сумма импортов: ${one + two}`);
